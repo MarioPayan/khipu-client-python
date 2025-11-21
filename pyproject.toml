@@ -1,0 +1,46 @@
+[build-system]
+requires = ["uv_build >= 0.9.9, <0.10.0"]
+build-backend = "uv_build"
+
+[project]
+name = "py-khipu-client"
+version = "0.1.1"
+description = "Python client for Khipu payment API"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "Mario Payan", email = "mpayan.av@gmail.com"},
+]
+maintainers = [
+    {name = "Mario Payan", email = "mpayan.av@gmail.com"},
+]
+keywords = ["khipu", "payment", "api", "client", "chile", "payments"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Office/Business :: Financial",
+]
+dependencies = [
+    "dotenv>=0.9.9",
+    "requests>=2.25.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/MarioPayan/khipu-client-python"
+
+[dependency-groups]
+dev = [
+    "black>=25.9.0",
+    "flake8>=7.3.0",
+    "build>=1.0.0",
+    "twine>=4.0.0",
+]
