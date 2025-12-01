@@ -1,14 +1,32 @@
-from typing import Optional
+from typing import Optional, List
 from dataclasses import dataclass
 
 
 @dataclass
-class BaseDataClass:
+class RequestDataClass:
     pass
 
 
 @dataclass
-class PaymentResponse(BaseDataClass):
+class ResponseDataClass:
+    pass
+
+
+@dataclass
+class ValidationError:
+    field: str
+    message: str
+
+
+@dataclass
+class ErrorResponse:
+    status: int
+    message: str
+    errors: Optional[List[ValidationError]]
+
+
+@dataclass
+class PaymentResponse(RequestDataClass):
     payment_id: str
     payment_url: str
     simplified_transfer_url: str
@@ -18,7 +36,7 @@ class PaymentResponse(BaseDataClass):
 
 
 @dataclass
-class PaymentRequest(BaseDataClass):
+class PaymentRequest(RequestDataClass):
     amount: int
     currency: str
     subject: str
@@ -46,7 +64,7 @@ class PaymentRequest(BaseDataClass):
 
 
 @dataclass
-class ReceiverRequest(BaseDataClass):
+class ReceiverRequest(ResponseDataClass):
     admin_first_name: str
     admin_last_name: str
     admin_email: str
@@ -72,7 +90,7 @@ class ReceiverRequest(BaseDataClass):
 
 
 @dataclass
-class ReceiverResponse(BaseDataClass):
+class ReceiverResponse(ResponseDataClass):
     receiver_id: str
     secret: str
     contract_url: Optional[str] = None

@@ -12,6 +12,8 @@ from .data_classes import (
     PaymentResponse,
     ReceiverRequest,
     ReceiverResponse,
+    ErrorResponse,
+    ValidationError,
 )
 
 __all__ = [
@@ -20,4 +22,6 @@ __all__ = [
     "PaymentResponse",
     "ReceiverRequest",
     "ReceiverResponse",
+    "ErrorResponse",
+    "ValidationError",
 ]
