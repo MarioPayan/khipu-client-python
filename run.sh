@@ -1,9 +1,6 @@
 #!/bin/bash
 
 case "$1" in
-  start)
-    echo "Starting server..."
-    ;;
   setup)
     echo "Setting up: reinstalling dependencies and initializing database..."
     uv sync --group dev
@@ -40,10 +37,6 @@ case "$1" in
     uv run python -m twine upload dist/*
     echo "DONE"
     ;;
-  test)
-    echo "Running tests..."
-    uv run python debug.py
-    ;;
   *)
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo "  🚀 Khipu Backend Runner"
@@ -57,7 +50,6 @@ case "$1" in
     echo "    lint       - Run black and flake8 linters"
     echo "    build      - Build the package for distribution"
     echo "    deploy     - Deploy the package to PyPI (requires PYPI_TOKEN in .env)"
-    echo "    test       - Run debug.py for testing"
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     exit 1
